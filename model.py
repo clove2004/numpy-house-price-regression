@@ -145,6 +145,8 @@ def ols_fit(X, y):
                 sigma[i][j] = 1.0/sigma[i][j]
     A_plus = Vt.T @ np.transpose(sigma) @ U.T
     x_plus = A_plus @ y 
+    # theta, *_ = np.linalg.lstsq(X, y, rcond=None)
+    # return theta
     return x_plus
 
 # Step 14 - ols_predict (not yet solved)
