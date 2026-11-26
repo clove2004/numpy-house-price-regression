@@ -66,8 +66,21 @@ def append_column(X, col):
     col_n = col.reshape(-1, 1)
     return np.concatenate((X, col_n), axis=1)
 
-# Step 6 - one_hot_encode (not yet solved)
-# TODO: implement
+# Step 6 - one_hot_encode
+def one_hot_encode(labels):
+    # TODO: Convert a 1-D array of categorical labels into a dense binary one-hot matrix.
+    s = set(labels)
+    s = sorted(s)
+    dic = dict()
+    for i in range (len(s)):
+        dic[s[i]] = i 
+    ans = []
+    cur = [0.0 for _ in range (len(s))]
+    for i in labels:
+        curr = cur.copy()
+        curr[dic[i]] = 1.0
+        ans.append(curr)
+    return np.asarray(ans, dtype=float)
 
 # Step 7 - fit_standardizer (not yet solved)
 # TODO: implement
